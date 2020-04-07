@@ -4,6 +4,7 @@ import (
 	"encoding"
 	"fmt"
 	"reflect"
+	"strings"
 
 	"github.com/szyhf/go-convert"
 )
@@ -30,31 +31,31 @@ func scan(s string, ptr interface{}) error {
 	case *[]rune:
 		*p = []rune(s)
 	case *int:
-		*p, err = convert.ToInt(s)
+		*p, err = convert.ToInt(strings.TrimSpace(s))
 	case *int8:
-		*p, err = convert.ToInt8(s)
+		*p, err = convert.ToInt8((strings.TrimSpace(s)))
 	case *int16:
-		*p, err = convert.ToInt16(s)
+		*p, err = convert.ToInt16((strings.TrimSpace(s)))
 	case *int32:
-		*p, err = convert.ToInt32(s)
+		*p, err = convert.ToInt32((strings.TrimSpace(s)))
 	case *int64:
-		*p, err = convert.ToInt64(s)
+		*p, err = convert.ToInt64((strings.TrimSpace(s)))
 	case *uint:
-		*p, err = convert.ToUint(s)
+		*p, err = convert.ToUint((strings.TrimSpace(s)))
 	case *uint8:
-		*p, err = convert.ToUint8(s)
+		*p, err = convert.ToUint8((strings.TrimSpace(s)))
 	case *uint16:
-		*p, err = convert.ToUint16(s)
+		*p, err = convert.ToUint16((strings.TrimSpace(s)))
 	case *uint32:
-		*p, err = convert.ToUint32(s)
+		*p, err = convert.ToUint32((strings.TrimSpace(s)))
 	case *uint64:
-		*p, err = convert.ToUint64(s)
+		*p, err = convert.ToUint64((strings.TrimSpace(s)))
 	case *float32:
-		*p, err = convert.ToFloat32(s)
+		*p, err = convert.ToFloat32((strings.TrimSpace(s)))
 	case *float64:
-		*p, err = convert.ToFloat64(s)
+		*p, err = convert.ToFloat64((strings.TrimSpace(s)))
 	case *bool:
-		*p, err = convert.ToBool(s)
+		*p, err = convert.ToBool((strings.TrimSpace(s)))
 	case encoding.BinaryUnmarshaler:
 		if err = p.UnmarshalBinary([]byte(s)); err != nil {
 			err = fmt.Errorf("can't unmarshar by encoding.BinaryUnmarshaler: %s", err)
