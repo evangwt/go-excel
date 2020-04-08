@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"strings"
 
+	twentysix "github.com/evangwt/go-excel/internal/twenty_six"
 	convert "github.com/szyhf/go-convert"
-	twentysix "github.com/szyhf/go-excel/internal/twenty_six"
 )
 
 // read is default implement of reader
